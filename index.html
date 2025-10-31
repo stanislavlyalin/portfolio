@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <!-- ===== САЙТ-ВИЗИТКА (ОДИН ФАЙЛ) — ШАБЛОН =====
+       Как пользоваться:
+       1) Замените ВСЕ ПЛЕЙСХОЛДЕРЫ (ИМЯ, ОПИСАНИЕ, ССЫЛКИ, ИЗОБРАЖЕНИЯ).
+       2) Для нового проекта полностью скопируйте <article class="project-card">...</article>.
+       3) В каждом проекте можете оставить/удалить кнопку Play Market.
+       4) Отзывы редактируются внутри блока [data-slider]. Кнопки ◀ ▶ уже работают.
+       5) Хостинг: положите этот файл как index.html на GitHub Pages / Netlify / Vercel.
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Станислав Лялин — портфолио</title>
+  <meta name="description" content="Краткое описание: кто вы и что делаете (до 150 символов)." />
+  <link rel="icon" href="/assets/favicon.png" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Станислав Лялин — портфолио" />
+  <meta property="og:description" content="Краткое описание: кто вы и что делаете." />
+  <meta property="og:image" content="/assets/cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Tailwind через CDN (без сборки). Можно заменить на свой CSS при желании. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .glass { backdrop-filter: blur(10px); background: rgba(255,255,255,0.6); }
+    .dark .glass { background: rgba(17, 24, 39, 0.6); }
+  </style>
+
+  <!-- Структурированные данные (JSON-LD) — замените содержимое под себя -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Станислав Лялин",
+    "url": "https://example.com",
+    "image": "https://example.com/assets/me.png",
+    "jobTitle": "Мобильный разработчик",
+    "sameAs": [
+      "https://github.com/username",
+      "https://t.me/username",
+      "https://linkedin.com/in/username"
+    ]
+  }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-900 selection:bg-indigo-200/60">
+  <!-- Шапка -->
+  <header class="sticky top-0 z-50 glass border-b border-black/5">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#top" class="font-semibold tracking-tight">Станислав Лялин</a>
+      <nav class="hidden sm:flex gap-6 text-sm">
+        <a href="#about" class="hover:opacity-80">Обо мне</a>
+        <a href="#projects" class="hover:opacity-80">Проекты</a>
+        <a href="#contacts" class="hover:opacity-80">Контакты</a>
+      </nav>
+      <a href="#contacts" class="sm:hidden inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black text-white text-sm">Связаться</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="top" class="max-w-5xl mx-auto px-4 pt-14 pb-8 sm:pb-12">
+    <div class="grid sm:grid-cols-[auto,1fr] items-center gap-6">
+      <img src="/assets/me.png" alt="Фото — Станислав Лялин" class="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl object-cover shadow" />
+      <div>
+        <h1 class="text-2xl sm:text-4xl font-bold leading-tight">Станислав Лялин</h1>
+        <p class="mt-3 text-gray-600 max-w-prose">Короткий подзаголовок: чем вы занимаетесь и чем можете быть полезны. Например: «Разрабатываю мобильные приложения на Kotlin / Swift, люблю простой UX и осмысленные продукты».</p>
+        <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+          <a href="mailto:you@example.com" class="px-3 py-1.5 rounded-full bg-gray-900 text-white">you@example.com</a>
+          <a href="https://github.com/username" class="px-3 py-1.5 rounded-full border">GitHub</a>
+          <a href="https://t.me/username" class="px-3 py-1.5 rounded-full border">Telegram</a>
+          <a href="https://linkedin.com/in/username" class="px-3 py-1.5 rounded-full border">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Обо мне / философия -->
+  <section id="about" class="max-w-5xl mx-auto px-4 py-10">
+    <div class="rounded-2xl p-6 sm:p-8 bg-white shadow-sm border border-black/5">
+      <h2 class="text-xl sm:text-2xl font-semibold">Философия</h2>
+      <p class="mt-3 text-gray-700 leading-relaxed">Короткий текст (3–6 предложений) о ваших принципах: как выбираете задачи, как принимаете решения, что для вас важно в продукте/коде/дизайне. Можно добавить фокус на доступность, производительность, прозрачную коммуникацию.</p>
+    </div>
+  </section>
+
+  <!-- Проекты -->
+  <section id="projects" class="max-w-5xl mx-auto px-4 py-10">
+    <h2 class="text-xl sm:text-2xl font-semibold mb-6">Проекты</h2>
+
+    <!-- === ПРОЕКТ 1 (пример) === -->
+    <article class="project-card grid sm:grid-cols-2 gap-5 mb-8 p-5 rounded-2xl bg-white shadow-sm border border-black/5">
+      <img src="/assets/projects/project-1.jpg" alt="Скриншот проекта 1" class="w-full h-56 object-cover rounded-xl shadow" />
+      <div class="flex flex-col">
+        <h3 class="text-lg sm:text-xl font-semibold">Название проекта 1</h3>
+        <p class="mt-2 text-gray-700">Описание из 4–5 предложений: что делает продукт, какую проблему решает, ваш вклад (архитектура, фичи, дизайн), метрики/результаты, технологии (например, Kotlin, Jetpack Compose; SwiftUI; React Native). Коротко и по делу.</p>
+        <div class="mt-3 flex flex-wrap gap-2 text-xs text-gray-600">
+          <span class="px-2 py-1 rounded-full bg-gray-100 border">Kotlin</span>
+          <span class="px-2 py-1 rounded-full bg-gray-100 border">Compose</span>
+          <span class="px-2 py-1 rounded-full bg-gray-100 border">Firebase</span>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <a href="https://github.com/username/project-1" class="px-3 py-1.5 rounded-full border">GitHub</a>
+          <a href="https://play.google.com/store/apps/details?id=example" class="px-3 py-1.5 rounded-full border">Play Market</a>
+          <!-- Если нет ссылки на маркет, просто удалите эту кнопку. -->
+        </div>
+
+        <!-- Отзывы (слайдер) -->
+        <div class="mt-5 border-t pt-4" data-slider>
+          <div class="flex items-center justify-between mb-2">
+            <p class="font-medium">Отзывы</p>
+            <div class="flex gap-2">
+              <button class="px-2 py-1 rounded border" aria-label="Предыдущий отзыв" data-prev>◀</button>
+              <button class="px-2 py-1 rounded border" aria-label="Следующий отзыв" data-next>▶</button>
+            </div>
+          </div>
+          <ul class="space-y-3" data-track>
+            <li class="p-3 rounded-xl bg-gray-50 border" aria-label="Отзыв 1">
+              <p class="text-sm text-gray-800">«Очень удобное приложение, закрывает кейс X, супер‑быстрое и без лишнего шума.»</p>
+              <p class="mt-1 text-xs text-gray-500">— Имя, должность/компания</p>
+            </li>
+            <li class="p-3 rounded-xl bg-gray-50 border" aria-label="Отзыв 2">
+              <p class="text-sm text-gray-800">«Приятный UX и понятная навигация. Видно внимание к деталям.»</p>
+              <p class="mt-1 text-xs text-gray-500">— Имя, должность/компания</p>
+            </li>
+            <li class="p-3 rounded-xl bg-gray-50 border" aria-label="Отзыв 3">
+              <p class="text-sm text-gray-800">«Интеграция с Y была сделана быстро и качественно. Рекомендуем!»</p>
+              <p class="mt-1 text-xs text-gray-500">— Имя, должность/компания</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- === ПРОЕКТ 2 (пример) === -->
+    <article class="project-card grid sm:grid-cols-2 gap-5 mb-8 p-5 rounded-2xl bg-white shadow-sm border border-black/5">
+      <img src="/assets/projects/project-2.jpg" alt="Скриншот проекта 2" class="w-full h-56 object-cover rounded-xl shadow" />
+      <div class="flex flex-col">
+        <h3 class="text-lg sm:text-xl font-semibold">Название проекта 2</h3>
+        <p class="mt-2 text-gray-700">Ещё одно описание на 4–5 предложений. Добавьте роль, технологии, самые заметные результаты (рост активных пользователей, отзывы, награды, загрузки и т. п.).</p>
+        <div class="mt-3 flex flex-wrap gap-2 text-xs text-gray-600">
+          <span class="px-2 py-1 rounded-full bg-gray-100 border">Swift</span>
+          <span class="px-2 py-1 rounded-full bg-gray-100 border">SwiftUI</span>
+          <span class="px-2 py-1 rounded-full bg-gray-100 border">Combine</span>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <a href="https://github.com/username/project-2" class="px-3 py-1.5 rounded-full border">GitHub</a>
+          <!-- <a href="#" class="px-3 py-1.5 rounded-full border">Play Market</a> -->
+        </div>
+        <div class="mt-5 border-t pt-4" data-slider>
+          <div class="flex items-center justify-between mb-2">
+            <p class="font-medium">Отзывы</p>
+            <div class="flex gap-2">
+              <button class="px-2 py-1 rounded border" aria-label="Предыдущий отзыв" data-prev>◀</button>
+              <button class="px-2 py-1 rounded border" aria-label="Следующий отзыв" data-next>▶</button>
+            </div>
+          </div>
+          <ul class="space-y-3" data-track>
+            <li class="p-3 rounded-xl bg-gray-50 border" aria-label="Отзыв 1">
+              <p class="text-sm text-gray-800">«Классная идея и отличная реализация. Работает стабильно.»</p>
+              <p class="mt-1 text-xs text-gray-500">— Имя, должность/компания</p>
+            </li>
+            <li class="p-3 rounded-xl bg-gray-50 border" aria-label="Отзыв 2">
+              <p class="text-sm text-gray-800">«Быстрый отклик на фидбек, релизы регулярные.»</p>
+              <p class="mt-1 text-xs text-gray-500">— Имя, должность/компания</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Подсказка -->
+    <p class="text-sm text-gray-500">Подсказка: добавляйте метрики (DAU/MAU, рейтинг в сторах, кол-во установок), жирно выделяйте вклад и технологии.</p>
+  </section>
+
+  <!-- Контакты -->
+  <section id="contacts" class="max-w-5xl mx-auto px-4 py-12">
+    <div class="rounded-2xl p-6 sm:p-8 bg-white shadow-sm border border-black/5">
+      <h2 class="text-xl sm:text-2xl font-semibold">Контакты</h2>
+      <div class="mt-4 grid sm:grid-cols-3 gap-4">
+        <a href="mailto:you@example.com" class="block p-4 rounded-xl border hover:bg-gray-50">you@example.com</a>
+        <a href="https://t.me/username" class="block p-4 rounded-xl border hover:bg-gray-50">@username</a>
+        <a href="https://linkedin.com/in/username" class="block p-4 rounded-xl border hover:bg-gray-50">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Подвал -->
+  <footer class="py-10 text-center text-xs text-gray-500">
+    © <span id="y"></span> Станислав Лялин. Сделано с ❤.
+  </footer>
+
+  <!-- Минимальный JS: отзывы + текущий год -->
+  <script>
+    // Обновляем год
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Универсальный слайдер для каждого data-slider
+    document.querySelectorAll('[data-slider]').forEach(function(slider){
+      const track = slider.querySelector('[data-track]');
+      const items = Array.from(track.children);
+      let i = 0;
+      function show(){ items.forEach((el, idx) => el.hidden = (idx !== i)); }
+      slider.querySelector('[data-prev]').addEventListener('click', () => { i = (i - 1 + items.length) % items.length; show(); });
+      slider.querySelector('[data-next]').addEventListener('click', () => { i = (i + 1) % items.length; show(); });
+      show();
+    });
+  </script>
+</body>
+</html>
