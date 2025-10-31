@@ -82,7 +82,7 @@
   <section id="about" class="max-w-5xl mx-auto px-4 py-10">
     <div class="rounded-2xl p-6 sm:p-8 bg-white shadow-sm border border-black/5">
       <h2 class="text-xl sm:text-2xl font-semibold">Философия</h2>
-      <p class="mt-3 text-gray-700 leading-relaxed">Короткий текст (3–6 предложений) о ваших принципах: как выбираете задачи, как принимаете решения, что для вас важно в продукте/коде/дизайне. Можно добавить фокус на доступность, производительность, прозрачную коммуникацию.</p>
+      <p class="mt-3 text-gray-700 leading-relaxed">Я убеждён, что технологии должны быть не "костылями" для человека, мешающими его полёту, а напротив, способствовать расширению его границ, развитию его личности. Представленные здесь проекты - это инструменты, которые помогают мне в жизни, а ещё они отражают мою любовь к программированию, стремление к простоте и выразительности. Лучше иметь один простой инструмент для повседневной задачи, чем иметь сложный "комбайн" на все случаи жизни, с которым трудно разобраться. Надеюсь, эти проекты окажутся полезными и для вас.</p>
     </div>
   </section>
 
@@ -92,19 +92,18 @@
 
     <!-- === ПРОЕКТ 1 (пример) === -->
     <article class="project-card grid sm:grid-cols-2 gap-5 mb-8 p-5 rounded-2xl bg-white shadow-sm border border-black/5">
-      <img src="assets/projects/project-1.jpg" alt="Скриншот проекта 1" class="w-full h-56 object-cover rounded-xl shadow" />
+      <img src="assets/projects/enjoy.png" data-full="assets/projects/enjoy.png" alt="Enjoy" class="w-full h-56 object-contain object-center rounded-xl shadow bg-gray-100 clickable-img cursor-pointer" />
       <div class="flex flex-col">
-        <h3 class="text-lg sm:text-xl font-semibold">Название проекта 1</h3>
+        <h3 class="text-lg sm:text-xl font-semibold">Enjoy - Читай в оригинале. Легко!</h3>
         <p class="mt-2 text-gray-700">Описание из 4–5 предложений: что делает продукт, какую проблему решает, ваш вклад (архитектура, фичи, дизайн), метрики/результаты, технологии (например, Kotlin, Jetpack Compose; SwiftUI; React Native). Коротко и по делу.</p>
         <div class="mt-3 flex flex-wrap gap-2 text-xs text-gray-600">
-          <span class="px-2 py-1 rounded-full bg-gray-100 border">Kotlin</span>
-          <span class="px-2 py-1 rounded-full bg-gray-100 border">Compose</span>
-          <span class="px-2 py-1 rounded-full bg-gray-100 border">Firebase</span>
+          <span class="px-2 py-1 rounded-full bg-gray-100 border">Android</span>
+          <span class="px-2 py-1 rounded-full bg-gray-100 border">Иностранные языки</span>
+          <span class="px-2 py-1 rounded-full bg-gray-100 border">Лёгкое запоминание</span>
         </div>
         <div class="mt-4 flex flex-wrap gap-3">
-          <a href="https://github.com/stanislavlyalin/project-1" class="px-3 py-1.5 rounded-full border">GitHub</a>
-          <a href="https://play.google.com/store/apps/details?id=example" class="px-3 py-1.5 rounded-full border">Play Market</a>
-          <!-- Если нет ссылки на маркет, просто удалите эту кнопку. -->
+          <a href="https://github.com/stanislavlyalin/enjoy-android-client" class="px-3 py-1.5 rounded-full border">GitHub</a>
+          <a href="https://www.rustore.ru/catalog/app/com.stanislavlyalin.enjoy" class="px-3 py-1.5 rounded-full border">RuStore</a>
         </div>
 
         <!-- Отзывы (слайдер) -->
@@ -189,6 +188,11 @@
     © <span id="y"></span> Станислав Лялин. Сделано с ❤.
   </footer>
 
+  <!-- Модальное окно просмотра изображения -->
+  <div id="image-modal" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <img id="modal-img" src="" alt="Просмотр изображения" class="max-h-[90vh] max-w-[90vw] rounded-xl shadow-2xl" />
+  </div>
+
   <!-- Минимальный JS: отзывы + текущий год -->
   <script>
     // Обновляем год
@@ -203,6 +207,31 @@
       slider.querySelector('[data-prev]').addEventListener('click', () => { i = (i - 1 + items.length) % items.length; show(); });
       slider.querySelector('[data-next]').addEventListener('click', () => { i = (i + 1) % items.length; show(); });
       show();
+    });
+
+    // ===== Галерея (после появления модалки в DOM) =====
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('image-modal');
+      const modalImg = document.getElementById('modal-img');
+
+      document.querySelectorAll('.clickable-img').forEach(img => {
+        img.addEventListener('click', () => {
+          modalImg.src = img.dataset.full || img.src;
+          modal.classList.remove('hidden');
+        });
+      });
+
+      // Закрытие по клику на фон / ESC
+      modal.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        modalImg.src = '';
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+          modal.classList.add('hidden');
+          modalImg.src = '';
+        }
+      });
     });
   </script>
 </body>
